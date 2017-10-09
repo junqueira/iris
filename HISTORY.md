@@ -6,39 +6,24 @@
 
 	http://support.iris-go.com
 
+## Sa, 03 June 2017
 
-## 6.1.4 -> 6.2.0 (√Νεxτ)
+New version 7 released.
 
-_Update: 12 April 2017_
+Navigate to the [master](https://github.com/kataras/iris/tree/master) branch for more.
 
-```
-Many of you, including myself, thought that Gerasimos is not accepting any PRs, this is wrong.
+This version, v6, will work "forever" by-design, it uses the vendor directory feature, so you get truly reproducible builds, as this method guards against upstream renames and delete.
 
-I did a long PR, which actually fixes some bugs and integrations with the godep tool, on a project that he's contributing too.
+Developers are not forced to upgrade to the version 7 if they don't really need it. 
 
-The next day I'm logged into my personal twitter and I saw a message written by him.
+## v5 -> v6 
 
-He, @kataras, wrote me that he was really impressed by the time I spent to actually fix a bug on an Iris sub-project.
-He told me that no one did that before and he asked me if I have more time to help these days on the Iris project too.
+Users already notified for some breaking-changes, this section will help you
+to adapt the new changes to your application, it contains an overview of the new features too.
 
-And, Here I am! Introducing myself to the most clever community!
-```
-
-```
-Hello,
-my name is Esemplastic.
-
-Iris' author, @kataras, is very busy these days on designing the new Iris' release which will contain even more prototypes and it will break any rules you knew so far.
-I took a sneak preview of it, don't tell to him!
-
-
-I'm the temporary maintainer of this open-source project and your new friend.
-```
 
 -  **FIX**: Upgrade the [httpcache](https://github.com/geekypanda/httpcache) vendor. As requested [here](http://support.iris-go.com/d/44-upgrade-httpcache-module).
 
-
-_Update: 28 March 2017_
 
 - **View**: Provide an easier method on the community's question about "injecting" additional data outside of the route's main handler which calls the .Render, via middleware. 
 	- As discussed [above](http://support.iris-go.com/d/27-using-middleware-to-inject-properties-for-templates). 
@@ -54,18 +39,6 @@ _Update: 12 March 2017_
 - Enhance per-party custom http errors (now it works on any wildcard path too).
 - Add a third parameter on `app.OnError(...)` for custom http errors with regexp validation, see [status_test.go](https://github.com/kataras/iris/blob/v6/status_test.go) for an example.
 - Add a `context.ParamIntWildcard(...)` to skip the first slash, useful for wildcarded paths' parameters.
-
-
-> Prepare for nice things, tomorrow is Iris' first birthday!
-
-
-_Update: 28 Feb 2017_
-
-> Note: I want you to know that I spent more than 200 hours (16 days of ~10-15 hours per-day, do the math) for this release, two days to write these changes, please read the sections before think that you have an issue and post a new question, thanks!
-
-
-Users already notified for some breaking-changes, this section will help you
-to adapt the new changes to your application, it contains an overview of the new features too.
 
 - Shutdown with `app.Shutdown(context.Context) error`, no need for any third-parties, with `EventPolicy.Interrupted` and Go's 1.8 Gracefully Shutdown feature you're ready to go!
 - HTTP/2 Go 1.8 `context.Push(target string, opts *http.PushOptions) error` is supported, example can be found [here](https://github.com/kataras/iris/blob/v6/adaptors/websocket/_examples/websocket_secure/main.go)
